@@ -10,5 +10,4 @@ const db = new Kysely<DB>({
     password: import.meta.env.DATABASE_PASSWORD,
   }),
 });
-
 export { db };

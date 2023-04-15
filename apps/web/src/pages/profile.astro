@@ -1,0 +1,16 @@
+---
+// pages/index.astro
+
+import { auth } from "@packages/auth";
+
+const authRequest = auth.handleRequest(Astro);
+const { user } = await authRequest.validateUser();
+
+if (!user) return Astro.redirect("/login", 302);
+---
+
+<h1>Profile</h1>
+<div>
+  <p>User id: {user?.userId}</p>
+  <p>Username: {user?.username}</p>
+</div>

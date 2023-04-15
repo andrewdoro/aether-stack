@@ -26,6 +26,9 @@ importers:
       '@packages/api':
         specifier: workspace:*
         version: link:../../packages/api
+      '@packages/auth':
+        specifier: workspace:*
+        version: link:../../packages/auth
       '@packages/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -75,6 +78,34 @@ importers:
       zod:
         specifier: ^3.21.4
         version: 3.21.4
+    devDependencies:
+      '@packages/preset-ts':
+        specifier: workspace:*
+        version: link:../preset-ts
+
+  packages/auth:
+    dependencies:
+      '@lucia-auth/adapter-kysely':
+        specifier: ^1.0.1
+        version: 1.0.1(lucia-auth@1.0.0)
+      '@packages/db':
+        specifier: workspace:*
+        version: link:../db
+      '@planetscale/database':
+        specifier: ^1.7.0
+        version: 1.7.0
+      '@prisma/client':
+        specifier: ^4.12.0
+        version: 4.12.0(prisma@4.12.0)
+      kysely:
+        specifier: ^0.24.2
+        version: 0.24.2
+      kysely-planetscale:
+        specifier: ^1.3.0
+        version: 1.3.0(@planetscale/database@1.7.0)(kysely@0.24.2)
+      lucia-auth:
+        specifier: ^1.0.0
+        version: 1.0.0
     devDependencies:
       '@packages/preset-ts':
         specifier: workspace:*
@@ -752,6 +783,14 @@ packages:
     resolution: {integrity: sha512-4/RWEeXDO6bocPONheFe6gX/oQdP/bEpv0oL4HqjPP5DCenBSt0mHgahppY49N0CpsaqffdwPq+TlX9CYOq2Dw==}
     dev: false
 
+  /@lucia-auth/adapter-kysely@1.0.1(lucia-auth@1.0.0):
+    resolution: {integrity: sha512-CnsktXZ+sUey3JDnX6ak4m8x9WUHbOx/HbU6hVmQ4XlVSOK5dajyIbvI5XPgkaFy0pLSMKwdBEflWFcdFIdRoA==}
+    peerDependencies:
+      lucia-auth: 1.x
+    dependencies:
+      lucia-auth: 1.0.0
+    dev: false
+
   /@mapbox/node-pre-gyp@1.0.10:
     resolution: {integrity: sha512-4ySo4CjzStuprMwk35H5pPbkymjv1SF3jGLj6rAHp/xT/RF7TL7bd9CTm1xDY49K2qF7jmR/g7k+SkLETP6opA==}
     hasBin: true
@@ -768,6 +807,10 @@ packages:
     transitivePeerDependencies:
       - encoding
       - supports-color
+    dev: false
+
+  /@noble/hashes@1.3.0:
+    resolution: {integrity: sha512-ilHEACi9DwqJB0pw7kv+Apvh50jiiSyR/cQ3y4W7lOR5mhvn/50FLUfsnfJz0BDZtl/RR16kXvptiv6q1msYZg==}
     dev: false
 
   /@nodelib/fs.scandir@2.1.5:
@@ -2908,6 +2951,13 @@ packages:
       yallist: 4.0.0
     dev: false
 
+  /lucia-auth@1.0.0:
+    resolution: {integrity: sha512-/AHfoh+ctU4mk69mwUO4AlA2NYIJmnr5ZGr9oJLmNg8l3DLow2ibAq0pHhExtQ/NeeVKEIaJ6SAprbtpRS3/1A==}
+    dependencies:
+      '@noble/hashes': 1.3.0
+      nanoid: 4.0.2
+    dev: false
+
   /magic-string@0.27.0:
     resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
     engines: {node: '>=12'}
@@ -3409,6 +3459,12 @@ packages:
     resolution: {integrity: sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+
+  /nanoid@4.0.2:
+    resolution: {integrity: sha512-7ZtY5KTCNheRGfEFxnedV5zFiORN1+Y1N6zvPTnHQd8ENUvfaDBeuJDZb2bN/oXwXxu3qkTXDzy57W5vAmDTBw==}
+    engines: {node: ^14 || ^16 || >=18}
+    hasBin: true
+    dev: false
 
   /new-github-issue-url@0.2.1:
     resolution: {integrity: sha512-md4cGoxuT4T4d/HDOXbrUHkTKrp/vp+m3aOA7XXVYwNsUNMK49g3SQicTSeV5GIz/5QVGAeYRAOlyp9OvlgsYA==}
