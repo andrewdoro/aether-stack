@@ -14,7 +14,5 @@ export default defineConfig({
       configFile: "@packages/preset-uno",
     }),
   ],
-  adapter: vercel({
-    excludeFiles: ["@prisma/client"],
-  }),
+  adapter: vercel(),
 });
