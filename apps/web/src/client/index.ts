@@ -4,15 +4,21 @@ import { createTRPCProxyClient, createTRPCSolid, httpBatchLink } from "solid-trp
 
 const trpc = createTRPCSolid<AppRouter>();
 
-const getBaseUrl = () => {
-  return import.meta.env.SERVER_URL;
-};
-
+export function getTrpcUrl() {
+  if (typeof window !== "undefined")
+    // browser should use relative path
+    return "/api/trpc";
+  if (import.meta.env.VERCEL_URL)
+    // reference for vercel.com
+    return `https://${import.meta.env.VERCEL_URL}/api/trpc`;
+  // assume localhost
+  return `http://localhost:3000/api/trpc`;
+}
 const trpcAstro = createTRPCProxyClient<AppRouter>({
   transformer: superjson,
   links: [
     httpBatchLink({
-      url: "/api/trpc",
+      url: getTrpcUrl(),
     }),
   ],
 });
@@ -21,7 +27,7 @@ const client = trpc.createClient({
   transformer: superjson,
   links: [
     httpBatchLink({
-      url: "http://localhost:3000/api/trpc",
+      url: getTrpcUrl(),
     }),
   ],
 });
