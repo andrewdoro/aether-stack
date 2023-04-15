@@ -1,5 +1,3 @@
-import * as React from "react";
-
 export const Button = () => {
-  return <button>Boop</button>;
+  return <button class='flex bg-blue-500 text-white'>Boop</button>;
 };

@@ -1,0 +1,12 @@
+{
+  "name": "@packages/preset-unocss",
+  "version": "0.0.0",
+  "main": "./unocss.config.ts",
+  "types": "./unocss.config.ts",
+  "license": "MIT",
+  "devDependencies": {
+    "@packages/preset-ts": "workspace:*",
+    "@unocss/preset-uno": "^0.51.4",
+    "unocss": "^0.51.4"
+  }
+}
