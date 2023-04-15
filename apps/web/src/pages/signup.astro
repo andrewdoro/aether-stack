@@ -1,7 +1,9 @@
 ---
 import { auth } from "@packages/auth";
 const authRequest = auth.handleRequest(Astro);
-
+export const config = {
+  runtime: "serverless",
+};
 const session = await authRequest.validate();
 if (session) return Astro.redirect("/profile", 302); // redirect to profile page if authenticated
 

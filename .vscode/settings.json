@@ -1,3 +1,7 @@
 {
-  "unocss.root": ["packages/unocss", "packages/ui", "apps/web"]
+  "unocss.root": ["packages/unocss", "packages/ui", "apps/web"],
+  "search.useIgnoreFiles": false,
+  "search.exclude": {
+    "**/node_modules": false
+  }
 }
