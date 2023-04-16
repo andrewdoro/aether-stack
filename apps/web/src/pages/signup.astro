@@ -1,9 +1,7 @@
 ---
 import { auth } from "@packages/auth";
 const authRequest = auth.handleRequest(Astro);
-export const config = {
-  runtime: "serverless",
-};
+
 const session = await authRequest.validate();
 if (session) return Astro.redirect("/profile", 302); // redirect to profile page if authenticated
 
@@ -37,7 +35,6 @@ if (Astro.request.method === "POST") {
       authRequest.setSession(session); // set session cookie
       return Astro.redirect("/profile", 302); // redirect on successful attempt
     } catch (err) {
-      console.log(err);
       Astro.response.status = 400;
     }
   } else {

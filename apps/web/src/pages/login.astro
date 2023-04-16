@@ -2,9 +2,7 @@
 // pages/login.astro
 
 import { auth } from "@packages/auth";
-export const config = {
-  runtime: "serverless",
-};
+
 const authRequest = auth.handleRequest(Astro);
 
 // redirect to profile page if authenticated

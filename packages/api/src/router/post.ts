@@ -1,4 +1,3 @@
-import { nanoid } from "nanoid";
 import { z } from "zod";
 
 import { createTRPCRouter, publicProcedure } from "../trpc";
