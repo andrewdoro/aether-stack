@@ -15,4 +15,9 @@ export default defineConfig({
     }),
   ],
   adapter: vercel(),
+  vite: {
+    resolve: {
+      conditions: ["browser"],
+    },
+  },
 });
