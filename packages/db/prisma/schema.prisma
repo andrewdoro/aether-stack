@@ -5,6 +5,10 @@ generator client {
     provider = "prisma-kysely"
 }
 
+generator studio {
+    provider = "prisma-client-js"
+}
+
 datasource db {
     provider     = "mysql"
     url          = env("DATABASE_URL")

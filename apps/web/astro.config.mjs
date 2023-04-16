@@ -2,7 +2,7 @@ import { defineConfig } from "astro/config";
 import UnoCSS from "unocss/astro";
 import solidJs from "@astrojs/solid-js";
 
-import vercel from "@astrojs/vercel/edge";
+import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,9 +15,4 @@ export default defineConfig({
     }),
   ],
   adapter: vercel(),
-  vite: {
-    resolve: {
-      conditions: ["browser"],
-    },
-  },
 });
