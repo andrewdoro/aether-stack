@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import { z } from "zod";
 
 import { createTRPCRouter, publicProcedure } from "../trpc";
@@ -19,7 +20,7 @@ export const postRouter = createTRPCRouter({
     .mutation(({ ctx, input }) => {
       return ctx.db
         .insertInto("Post")
-        .values({ ...input, id: crypto.randomUUID() })
+        .values({ ...input, id: nanoid() })
         .execute();
     }),
   delete: publicProcedure.input(z.string()).mutation(({ ctx, input }) => {

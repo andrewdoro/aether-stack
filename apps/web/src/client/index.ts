@@ -1,4 +1,3 @@
-import superjson from "superjson";
 import type { AppRouter } from "@packages/api";
 import { createTRPCProxyClient, createTRPCSolid, httpBatchLink } from "solid-trpc";
 
@@ -15,7 +14,6 @@ export function getTrpcUrl() {
   return `http://localhost:3000/api/trpc`;
 }
 const trpcAstro = createTRPCProxyClient<AppRouter>({
-  transformer: superjson,
   links: [
     httpBatchLink({
       url: getTrpcUrl(),
@@ -24,7 +22,6 @@ const trpcAstro = createTRPCProxyClient<AppRouter>({
 });
 
 const client = trpc.createClient({
-  transformer: superjson,
   links: [
     httpBatchLink({
       url: getTrpcUrl(),

@@ -7,10 +7,10 @@
  * The pieces you will need to use are documented accordingly near the end
  */
 import { TRPCError, initTRPC } from "@trpc/server";
-import superjson from "superjson";
 import { ZodError } from "zod";
 
 import { db } from "@packages/db";
+import { auth } from "@packages/auth";
 import { FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
 
 /**
@@ -50,9 +50,9 @@ const createInnerTRPCContext = (opts: CreateContextOptions) => {
  */
 export const createTRPCContext = async (opts: FetchCreateContextFnOptions) => {
   const { req, resHeaders } = opts;
-
-  // Get the session from the server using the unstable_getServerSession wrapper function
-  // const session = await getServerSession({ req, res });
+  // const sessionId = auth.parseRequestHeaders(req);
+  // let session = {};
+  // if (sessionId) session = await auth.validateSession(sessionId);
 
   return {
     ...createInnerTRPCContext({
@@ -70,7 +70,6 @@ export const createTRPCContext = async (opts: FetchCreateContextFnOptions) => {
  * transformer
  */
 const t = initTRPC.context<typeof createTRPCContext>().create({
-  transformer: superjson,
   errorFormatter({ shape, error }) {
     return {
       ...shape,
