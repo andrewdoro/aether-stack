@@ -2,6 +2,7 @@
 // pages/login.astro
 
 import { auth } from "@packages/auth";
+import Layout from "../layouts/Layout.astro";
 
 const authRequest = auth.handleRequest(Astro);
 
@@ -21,7 +22,6 @@ if (Astro.request.method === "POST") {
   const form = await Astro.request.formData();
   const username = form.get("username");
   const password = form.get("password");
-  console.log("xd");
   if (typeof username === "string" && typeof password === "string") {
     try {
       const key = await auth.useKey("username", username, password);
@@ -38,11 +38,13 @@ if (Astro.request.method === "POST") {
 }
 ---
 
-<h1>Sign in</h1>
-<form method='post'>
-  <label for='username'>username</label><br />
-  <input id='username' name='username' /><br />
-  <label for='password'>password</label><br />
-  <input type='password' id='password' name='password' /><br />
-  <input type='submit' value='Continue' class='button' />
-</form>
+<Layout title='Log in'>
+  <h1>Sign in</h1>
+  <form method='post'>
+    <label for='username'>username</label><br />
+    <input id='username' name='username' /><br />
+    <label for='password'>password</label><br />
+    <input type='password' id='password' name='password' /><br />
+    <input type='submit' value='Continue' class='button' />
+  </form>
+</Layout>

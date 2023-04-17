@@ -145,8 +145,8 @@ importers:
   packages/preset-ts:
     dependencies:
       typescript:
-        specifier: 4.8.4
-        version: 4.8.4
+        specifier: 5.0.4
+        version: 5.0.4
 
   packages/ui:
     dependencies:
@@ -172,6 +172,9 @@ importers:
       unocss:
         specifier: ^0.51.4
         version: 0.51.4(postcss@8.4.22)(vite@4.2.1)
+      unocss-preset-theme:
+        specifier: ^0.6.0
+        version: 0.6.0(@unocss/core@0.51.4)
 
 packages:
 
@@ -1591,7 +1594,7 @@ packages:
       strip-ansi: 7.0.1
       supports-esm: 1.0.0
       tsconfig-resolver: 3.0.1
-      typescript: 5.0.4
+      typescript: 4.8.4
       unist-util-visit: 4.1.2
       vfile: 5.3.7
       vite: 4.2.1
@@ -4755,6 +4758,15 @@ packages:
       unist-util-is: 5.2.1
       unist-util-visit-parents: 5.1.3
     dev: false
+
+  /unocss-preset-theme@0.6.0(@unocss/core@0.51.4):
+    resolution: {integrity: sha512-ttAZLq/WgCYrZpP/j4QAvbQzyNiGTS8u0u4+C89CMnMfMww/jNwbMOzuYooTKipOtS3QkLnG+AmMk0mp7QPEXg==}
+    peerDependencies:
+      '@unocss/core': ^0.51.0
+    dependencies:
+      '@unocss/core': 0.51.4
+      '@unocss/preset-mini': 0.51.4
+    dev: true
 
   /unocss@0.51.4(postcss@8.4.22)(vite@4.2.1):
     resolution: {integrity: sha512-84kRoL29Rk0AKdeS2GGZ+YduW5F0S2on3cSxA2Hh1KlI4MN8Xvxa8+f4RfFS0U5iH4yoHohvcWThRgjDhOWSeg==}

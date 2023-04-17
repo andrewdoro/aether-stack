@@ -6,7 +6,7 @@
     "tsconfig/*.json"
   ],
   "dependencies": {
-    "typescript": "4.8.4"
+    "typescript": "5.0.4"
   },
   "publishConfig": {
     "access": "public"

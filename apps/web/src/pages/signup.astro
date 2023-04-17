@@ -1,5 +1,6 @@
 ---
 import { auth } from "@packages/auth";
+import Layout from "../layouts/Layout.astro";
 const authRequest = auth.handleRequest(Astro);
 
 const session = await authRequest.validate();
@@ -43,11 +44,13 @@ if (Astro.request.method === "POST") {
 }
 ---
 
-<h1>Create an account</h1>
-<form method='post'>
-  <label for='username'>username</label><br />
-  <input id='username' name='username' /><br />
-  <label for='password'>password</label><br />
-  <input type='password' id='password' name='password' /><br />
-  <input type='submit' value='Continue' class='button' />
-</form>
+<Layout title='Sign Up'>
+  <h1>Create an account</h1>
+  <form method='post'>
+    <label for='username'>username</label><br />
+    <input id='username' name='username' /><br />
+    <label for='password'>password</label><br />
+    <input type='password' id='password' name='password' /><br />
+    <input type='submit' value='Continue' class='button' />
+  </form>
+</Layout>

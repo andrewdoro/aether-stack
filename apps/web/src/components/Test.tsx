@@ -10,7 +10,7 @@ const Test = () => {
   return (
     <>
       <Show when={res.data}>
-        {(data) => <For each={data()}>{(item) => <div>{item.title}</div>}</For>}
+        {(data) => <For each={data()}>{(item) => <div class=' color-base'>{item.title}</div>}</For>}
       </Show>
       {/* <Show when={auth.data}>{(data) => <div>data.</div>}</Show> */}
       <div class='flex'>
@@ -24,7 +24,6 @@ const Test = () => {
                 },
               }
             );
-            console.log("xd");
           }}>
           Create
         </button>

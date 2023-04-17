@@ -11,8 +11,8 @@ import { ZodError } from "zod";
 
 import { db } from "@packages/db";
 import { auth } from "@packages/auth";
-import { FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
 
+import { FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
 /**
  * 1. CONTEXT
  *
@@ -36,6 +36,7 @@ type CreateContextOptions = {
  * - trpc's `createSSGHelpers` where we don't have req/res
  * @see https://create.t3.gg/en/usage/trpc#-servertrpccontextts
  */
+
 const createInnerTRPCContext = (opts: CreateContextOptions) => {
   return {
     session: opts.session,
@@ -50,13 +51,13 @@ const createInnerTRPCContext = (opts: CreateContextOptions) => {
  */
 export const createTRPCContext = async (opts: FetchCreateContextFnOptions) => {
   const { req, resHeaders } = opts;
-  // const sessionId = auth.parseRequestHeaders(req);
-  // let session = {};
-  // if (sessionId) session = await auth.validateSession(sessionId);
+  const sessionId = auth.parseRequestHeaders(req as any);
+  let session = {};
+  if (sessionId) session = await auth.validateSession(sessionId);
 
   return {
     ...createInnerTRPCContext({
-      session: {},
+      session,
     }),
     req,
     resHeaders,
