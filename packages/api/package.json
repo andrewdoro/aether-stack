@@ -14,12 +14,11 @@
     "@packages/db": "workspace:*",
     "@trpc/client": "^10.20.0",
     "@trpc/server": "^10.20.0",
-    "nanoid": "^4.0.2",
     "superjson": "1.9.1",
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@packages/preset-ts": "workspace:*",
-    "@packages/auth": "workspace:*"
+    "@packages/auth": "workspace:*",
+    "@packages/preset-ts": "workspace:*"
   }
 }

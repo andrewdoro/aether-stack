@@ -21,7 +21,7 @@ export type AuthUser = {
     userName: string;
 };
 export type Post = {
-    id: string;
+    id: Generated<string>;
     title: string;
     content: string;
 };

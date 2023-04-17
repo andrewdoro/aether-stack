@@ -16,7 +16,7 @@ datasource db {
 }
 
 model Post {
-    id      String @id @default(cuid())
+    id      String @id @default(dbgenerated("nanoid()"))
     title   String
     content String
 }

@@ -72,9 +72,6 @@ importers:
       '@trpc/server':
         specifier: ^10.20.0
         version: 10.20.0
-      nanoid:
-        specifier: ^4.0.2
-        version: 4.0.2
       superjson:
         specifier: 1.9.1
         version: 1.9.1
@@ -93,7 +90,7 @@ importers:
     dependencies:
       '@lucia-auth/adapter-kysely':
         specifier: ^1.0.1
-        version: 1.0.1(lucia-auth@1.1.0)
+        version: 1.0.1(lucia-auth@1.2.1)
       '@packages/db':
         specifier: workspace:*
         version: link:../db
@@ -110,8 +107,8 @@ importers:
         specifier: ^1.3.0
         version: 1.3.0(@planetscale/database@1.7.0)(kysely@0.24.2)
       lucia-auth:
-        specifier: ^1.1.0
-        version: 1.1.0
+        specifier: ^1.2.1
+        version: 1.2.1
     devDependencies:
       '@packages/preset-ts':
         specifier: workspace:*
@@ -789,12 +786,12 @@ packages:
     resolution: {integrity: sha512-4/RWEeXDO6bocPONheFe6gX/oQdP/bEpv0oL4HqjPP5DCenBSt0mHgahppY49N0CpsaqffdwPq+TlX9CYOq2Dw==}
     dev: false
 
-  /@lucia-auth/adapter-kysely@1.0.1(lucia-auth@1.1.0):
+  /@lucia-auth/adapter-kysely@1.0.1(lucia-auth@1.2.1):
     resolution: {integrity: sha512-CnsktXZ+sUey3JDnX6ak4m8x9WUHbOx/HbU6hVmQ4XlVSOK5dajyIbvI5XPgkaFy0pLSMKwdBEflWFcdFIdRoA==}
     peerDependencies:
       lucia-auth: 1.x
     dependencies:
-      lucia-auth: 1.1.0
+      lucia-auth: 1.2.1
     dev: false
 
   /@mapbox/node-pre-gyp@1.0.10:
@@ -813,10 +810,6 @@ packages:
     transitivePeerDependencies:
       - encoding
       - supports-color
-    dev: false
-
-  /@noble/hashes@1.3.0:
-    resolution: {integrity: sha512-ilHEACi9DwqJB0pw7kv+Apvh50jiiSyR/cQ3y4W7lOR5mhvn/50FLUfsnfJz0BDZtl/RR16kXvptiv6q1msYZg==}
     dev: false
 
   /@nodelib/fs.scandir@2.1.5:
@@ -2967,10 +2960,8 @@ packages:
       yallist: 4.0.0
     dev: false
 
-  /lucia-auth@1.1.0:
-    resolution: {integrity: sha512-YX7RXRLsGSauwfgWlju8qp5mlEZFN+GdRjiyJbTzrOe+oQKfxiGqt7bvcbYvyWjoNHQilGqaly2YdswOYGYCmQ==}
-    dependencies:
-      '@noble/hashes': 1.3.0
+  /lucia-auth@1.2.1:
+    resolution: {integrity: sha512-AxBIqtAwxVV5GkmfU/zBPUy3tI7FQihMpyVaUODd8K0ClAhcQdgHZzvBGRZglbcqENsJWRDoRROiMF6g56N0DQ==}
     dev: false
 
   /magic-string@0.27.0:
@@ -3479,12 +3470,6 @@ packages:
     resolution: {integrity: sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
-
-  /nanoid@4.0.2:
-    resolution: {integrity: sha512-7ZtY5KTCNheRGfEFxnedV5zFiORN1+Y1N6zvPTnHQd8ENUvfaDBeuJDZb2bN/oXwXxu3qkTXDzy57W5vAmDTBw==}
-    engines: {node: ^14 || ^16 || >=18}
-    hasBin: true
-    dev: false
 
   /new-github-issue-url@0.2.1:
     resolution: {integrity: sha512-md4cGoxuT4T4d/HDOXbrUHkTKrp/vp+m3aOA7XXVYwNsUNMK49g3SQicTSeV5GIz/5QVGAeYRAOlyp9OvlgsYA==}
