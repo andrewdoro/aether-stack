@@ -1,3 +1,4 @@
 {
-  "unocss.root": ["packages/unocss", "packages/ui", "apps/web"]
+  "unocss.root": ["packages/unocss", "packages/ui", "apps/web"],
+  "typescript.tsdk": "./packages/preset-ts/node_modules/typescript/lib"
 }
