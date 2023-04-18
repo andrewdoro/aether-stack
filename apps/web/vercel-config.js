@@ -21,7 +21,6 @@ const newConfig = {
       {
         protocol: "https",
         hostname: "picsum.photos",
-        pathname: "/",
       },
     ],
   },
