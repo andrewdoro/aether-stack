@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 import UnoCSS from "unocss/astro";
 import solidJs from "@astrojs/solid-js";
+import serviceWorker from "astrojs-service-worker";
 
 import vercel from "@astrojs/vercel/edge";
 
@@ -13,6 +14,7 @@ export default defineConfig({
       injectReset: true,
       configFile: "@packages/preset-uno",
     }),
+    serviceWorker(),
   ],
   adapter: vercel(),
 });
