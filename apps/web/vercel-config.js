@@ -1,14 +1,17 @@
 // scripts/vercel-config.js
-import fs from "fs";
+import fs from "fs/promises";
 import path from "path";
+import { fileURLToPath } from "url";
 
-const pfs = fs.promises;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const configPath = path.join(__dirname, ".vercel/output/config.json");
-const existingConfig = JSON.parse(await pfs.readFile(configPath, "utf-8"));
+const existingConfig = JSON.parse(await fs.readFile(configPath, "utf-8"));
 
 const newConfig = {
   ...existingConfig,
+  version: 3,
   images: {
     sizes: [640, 750, 828, 1080, 1200],
     domains: [],
@@ -17,8 +20,8 @@ const newConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "^avatars1\\.githubusercontent\\.com$",
-        pathname: "^/u/578259",
+        hostname: "picsum.photos",
+        pathname: "/",
       },
     ],
   },
