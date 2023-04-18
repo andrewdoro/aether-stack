@@ -9,7 +9,6 @@ const __dirname = path.dirname(__filename);
 const configPath = path.join(__dirname, ".vercel/output/config.json");
 const existingConfig = JSON.parse(await fs.readFile(configPath, "utf-8"));
 
-console.log(existingConfig);
 const newConfig = {
   ...existingConfig,
   version: 3,
