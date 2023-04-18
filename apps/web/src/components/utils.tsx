@@ -10,7 +10,7 @@ export function createLocalStore<T extends object>(
   const [state, setState] = createStore<T>(localState ? JSON.parse(localState) : init);
 
   createEffect(() => {
-    if (isServer) localStorage.setItem(name, JSON.stringify(state));
+    localStorage.setItem(name, JSON.stringify(state));
   });
   return [state, setState];
 }
