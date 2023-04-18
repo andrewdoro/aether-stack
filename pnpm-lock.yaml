@@ -75,6 +75,9 @@ importers:
       '@trpc/server':
         specifier: ^10.20.0
         version: 10.20.0
+      '@vercel/edge':
+        specifier: ^0.3.2
+        version: 0.3.2
       superjson:
         specifier: 1.9.1
         version: 1.9.1
@@ -2399,6 +2402,10 @@ packages:
       react: ^16.8||^17||^18
     dependencies:
       react: 18.2.0
+    dev: false
+
+  /@vercel/edge@0.3.2:
+    resolution: {integrity: sha512-+Vmzzdj5bRdLkBUERJEMkm1pgBDoMrcyDZLRjCWQskOTpi9NfAyu5RU42y4XxpPBwHpuRzkk6lpGa1g3c1Xw2w==}
     dev: false
 
   /@vercel/nft@0.22.6:

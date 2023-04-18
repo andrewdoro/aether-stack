@@ -1,3 +1,4 @@
+import { geolocation } from "@vercel/edge";
 /**
  * YOU PROBABLY DON'T NEED TO EDIT THIS FILE, UNLESS:
  * 1. You want to modify request context (see Part 1)
@@ -51,6 +52,9 @@ const createInnerTRPCContext = (opts: CreateContextOptions) => {
  */
 export const createTRPCContext = async (opts: FetchCreateContextFnOptions) => {
   const { req, resHeaders } = opts;
+  const { longitude, latitude, city, country } = geolocation(req);
+
+  console.log(city, country);
   const sessionId = auth.parseRequestHeaders(req as any);
   let session = {};
   if (sessionId) session = await auth.validateSession(sessionId);
