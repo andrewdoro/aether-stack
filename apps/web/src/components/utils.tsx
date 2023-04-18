@@ -6,7 +6,7 @@ export function createLocalStore<T extends object>(
   name: string,
   init: T
 ): [Store<T>, SetStoreFunction<T>] {
-  const localState = isServer ? init : (localStorage.getItem(name) as any);
+  const localState = isServer ? null : (localStorage.getItem(name) as any);
   const [state, setState] = createStore<T>(localState ? JSON.parse(localState) : init);
 
   createEffect(() => {
