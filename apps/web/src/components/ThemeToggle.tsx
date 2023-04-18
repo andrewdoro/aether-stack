@@ -1,9 +1,11 @@
+import { Show } from "solid-js";
 import { createLocalStore } from "./utils";
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = createLocalStore<{ mode: string }>("theme", { mode: "light" });
+  const [theme, setTheme] = createLocalStore<{ mode: string | null }>("theme", { mode: null });
   return (
     <div
+      class='color-base text-xl bg-paper p-2 border rounded-full'
       onClick={() => {
         const mode = theme.mode === "light" ? "dark" : "light";
         setTheme({ mode });
@@ -13,7 +15,9 @@ const ThemeToggle = () => {
           document.documentElement.classList.remove("dark");
         }
       }}>
-      {theme.mode}
+      <Show when={theme.mode} fallback={<div class='w-5 h-5' />}>
+        <div class={theme.mode === "light" ? "i-tabler:sun-filled" : "i-tabler:moon-filled"} />
+      </Show>
     </div>
   );
 };

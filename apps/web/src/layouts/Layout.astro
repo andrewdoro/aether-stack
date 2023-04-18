@@ -41,7 +41,7 @@ const { user } = await authRequest.validateUser();
   </head>
   <body class='bg-base flex flex-col'>
     <Header client:load user={user} />
-    <main class=''>
+    <main class='max-w-5xl mx-auto w-full bg-paper p-4 rounded-lg border border-gray-6'>
       <slot />
     </main>
   </body>

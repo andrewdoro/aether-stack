@@ -19,7 +19,7 @@ export const postRouter = createTRPCRouter({
     .mutation(({ ctx, input }) => {
       return ctx.db
         .insertInto("Post")
-        .values({ ...input, id: "something" })
+        .values({ ...input, id: crypto.randomUUID() })
         .execute();
     }),
   delete: publicProcedure.input(z.string()).mutation(({ ctx, input }) => {

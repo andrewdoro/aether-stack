@@ -54,9 +54,9 @@ export const createTRPCContext = async (opts: FetchCreateContextFnOptions) => {
   const { req, resHeaders } = opts;
   const { longitude, latitude, city, country } = geolocation(req);
 
-  console.log(city, country);
   const sessionId = auth.parseRequestHeaders(req as any);
   let session = {};
+
   if (sessionId) session = await auth.validateSession(sessionId);
 
   return {

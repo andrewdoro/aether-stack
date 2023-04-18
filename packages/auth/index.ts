@@ -14,7 +14,7 @@ const db = new Kysely<KyselyLuciaDatabase>({
 });
 const auth = lucia({
   adapter: kysely(db, "mysql2"),
-  env: "DEV",
+  env: import.meta.AUTH,
   middleware: astro(),
   transformDatabaseUser: (userData) => {
     return {

@@ -10,11 +10,12 @@ const Test = () => {
   return (
     <>
       <Show when={res.data}>
-        {(data) => <For each={data()}>{(item) => <div class=' color-base'>{item.title}</div>}</For>}
+        {(data) => <For each={data()}>{(item) => <div class='color-base'>{item.title}</div>}</For>}
       </Show>
-      {/* <Show when={auth.data}>{(data) => <div>data.</div>}</Show> */}
+      {/* <Sh ow when={auth.data}>{(data) => <div>data.</div>}</Sh> */}
       <div class='flex'>
         <button
+          class='color-base px-2 py-1 bg-gray-300 rounded-md font-bold dark:bg-dark-300'
           onClick={() => {
             mutate(
               { title: "test", content: "test" },

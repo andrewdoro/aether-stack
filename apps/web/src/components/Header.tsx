@@ -1,9 +1,9 @@
 import { Show } from "solid-js";
+import ThemeToggle from "./ThemeToggle";
 
 const Header = (props: { user: (Lucia.UserAttributes & { userId: string }) | null }) => {
   return (
-    <div class='w-full items-center flex justify-between py-4 flex px-4 bg-gray-100 dark:bg-dark-9 '>
-      <h2 class='color-base text-3xl font-bold'>Aether</h2>
+    <div class='w-full items-center flex justify-end gap-4 py-4 max-w-5xl mx-auto flex px-4  '>
       <Show
         when={props.user}
         fallback={
@@ -11,8 +11,13 @@ const Header = (props: { user: (Lucia.UserAttributes & { userId: string }) | nul
             Log in
           </a>
         }>
-        {(user) => <div class='bg-white rounded-full h-8 w-8'>{user().username}</div>}
+        {(user) => (
+          <div class='border rounded-full color-base bg-paper p-1'>
+            <div class='i-tabler:user text-3xl rounded-full' />
+          </div>
+        )}
       </Show>
+      <ThemeToggle />
     </div>
   );
 };

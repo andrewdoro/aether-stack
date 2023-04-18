@@ -1,13 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import Image from "../components/Image.astro";
 import TestWrapper from "../components/TestWrapper";
 import ThemeToggle from "../components/ThemeToggle";
-
-export const prerender = true;
 ---
 
-<Layout title='Welcome to Astro.'>
+<Layout title='Welcome to Astro'>
+  <Image alt='test' src='https://picsum.photos/200/300' width={200} height={300} />
   <TestWrapper client:load />
-  <ThemeToggle client:load />
 </Layout>

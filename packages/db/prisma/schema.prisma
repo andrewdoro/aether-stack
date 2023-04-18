@@ -16,7 +16,7 @@ datasource db {
 }
 
 model Post {
-    id      String @id @default(dbgenerated("nanoid()"))
+    id      String @id @default(cuid())
     title   String
     content String
 }
@@ -25,7 +25,7 @@ model AuthUser {
     id           String        @id @unique
     auth_session AuthSession[]
     auth_key     AuthKey[]
-    userName     String
+    username     String
     // here you can add custom fields for your user
     // e.g. name, email, username, roles, etc.
 

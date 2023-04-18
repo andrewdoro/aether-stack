@@ -15,4 +15,5 @@ export default defineConfig({
     }),
   ],
   adapter: vercel(),
+  outDir: "./.vercel/output/static",
 });

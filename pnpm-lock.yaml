@@ -165,6 +165,10 @@ importers:
         version: link:../unocss
 
   packages/unocss:
+    dependencies:
+      '@iconify-json/tabler':
+        specifier: ^1.1.73
+        version: 1.1.73
     devDependencies:
       '@packages/preset-ts':
         specifier: workspace:*
@@ -174,7 +178,7 @@ importers:
         version: 0.51.4
       unocss:
         specifier: ^0.51.4
-        version: 0.51.4(postcss@8.4.22)(rollup@2.79.1)(vite@4.2.1)
+        version: 0.51.4(postcss@8.4.22)(vite@4.2.1)
       unocss-preset-theme:
         specifier: ^0.6.0
         version: 0.6.0(@unocss/core@0.51.4)
@@ -743,9 +747,14 @@ packages:
     requiresBuild: true
     optional: true
 
+  /@iconify-json/tabler@1.1.73:
+    resolution: {integrity: sha512-oFJ3YY3+NbqORGhZwT44Zt4F/rkvM/YLO+5yUzA7pbn1U49pfxcK4gDaliu0+Z7N5VxNWMlP3IENqXVdpSrSaQ==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: false
+
   /@iconify/types@2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
-    dev: true
 
   /@iconify/utils@2.1.5:
     resolution: {integrity: sha512-6MvDI+I6QMvXn5rK9KQGdpEE4mmLTcuQdLZEiX5N+uZB+vc4Yw9K1OtnOgkl8mp4d9X0UrILREyZgF1NUwUt+Q==}
@@ -1026,21 +1035,6 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /@rollup/pluginutils@5.0.2(rollup@2.79.1):
-    resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      rollup: ^1.20.0||^2.0.0||^3.0.0
-    peerDependenciesMeta:
-      rollup:
-        optional: true
-    dependencies:
-      '@types/estree': 1.0.0
-      estree-walker: 2.0.2
-      picomatch: 2.3.1
-      rollup: 2.79.1
-    dev: true
-
   /@tanstack/query-core@5.0.0-alpha.12:
     resolution: {integrity: sha512-kd53UD6pasczOQ0Y+59Ku0Ep3W+7qjjhxnn2PGIEqioqa4g27Vnt77yTb8SwrXQR92ugazGpjOsGylDtwh31QA==}
     dev: false
@@ -1183,17 +1177,6 @@ packages:
     resolution: {integrity: sha512-iO9ZQHkZxHn4mSakYV0vFHAVDyEOIJQrV2uZ06HxEPcx+mt8swXoZHIbaaJ2crJYFfErySgktuTZ3BeLz+XmFA==}
     dev: false
 
-  /@unocss/astro@0.51.4(rollup@2.79.1)(vite@4.2.1):
-    resolution: {integrity: sha512-denp8/PHvzfN9azfTF72+ey6xpgUB4L4416FI4DfcfKPzRMo4KjIaHlTD6xuaJwBdC8UJSOIcDRXldRGPT33Ag==}
-    dependencies:
-      '@unocss/core': 0.51.4
-      '@unocss/reset': 0.51.4
-      '@unocss/vite': 0.51.4(rollup@2.79.1)(vite@4.2.1)
-    transitivePeerDependencies:
-      - rollup
-      - vite
-    dev: true
-
   /@unocss/astro@0.51.4(vite@4.2.1):
     resolution: {integrity: sha512-denp8/PHvzfN9azfTF72+ey6xpgUB4L4416FI4DfcfKPzRMo4KjIaHlTD6xuaJwBdC8UJSOIcDRXldRGPT33Ag==}
     dependencies:
@@ -1212,28 +1195,6 @@ packages:
     dependencies:
       '@ampproject/remapping': 2.2.1
       '@rollup/pluginutils': 5.0.2
-      '@unocss/config': 0.51.4
-      '@unocss/core': 0.51.4
-      '@unocss/preset-uno': 0.51.4
-      cac: 6.7.14
-      chokidar: 3.5.3
-      colorette: 2.0.20
-      consola: 3.0.2
-      fast-glob: 3.2.12
-      magic-string: 0.30.0
-      pathe: 1.1.0
-      perfect-debounce: 0.1.3
-    transitivePeerDependencies:
-      - rollup
-    dev: true
-
-  /@unocss/cli@0.51.4(rollup@2.79.1):
-    resolution: {integrity: sha512-x0SYt7wL1EE3OSlV55gKmbpXrbG9vkJHVFxTC4iH2uezfpwVejpdP1sQwyHCzIBbVFAPGPzH+pdRtdmvFU1G3Q==}
-    engines: {node: '>=14'}
-    hasBin: true
-    dependencies:
-      '@ampproject/remapping': 2.2.1
-      '@rollup/pluginutils': 5.0.2(rollup@2.79.1)
       '@unocss/config': 0.51.4
       '@unocss/core': 0.51.4
       '@unocss/preset-uno': 0.51.4
@@ -1383,26 +1344,6 @@ packages:
     resolution: {integrity: sha512-4MD89Qgzqkc67/22RZ5a7mePCQQXuJR5ciCpEiszIs7utclWcRh555vbZ7oxxls6YHBVnKW7hpKcK+wiXLAnJQ==}
     dependencies:
       '@unocss/core': 0.51.4
-    dev: true
-
-  /@unocss/vite@0.51.4(rollup@2.79.1)(vite@4.2.1):
-    resolution: {integrity: sha512-zrACPc6c99Phipi1totFjGzUvcucP+HZoeSTr4VDPQQk/vo7CuSmYFNMzWEw2NynWJgkv/FUdLTnK0tZj08LCA==}
-    peerDependencies:
-      vite: ^2.9.0 || ^3.0.0-0 || ^4.0.0
-    dependencies:
-      '@ampproject/remapping': 2.2.1
-      '@rollup/pluginutils': 5.0.2(rollup@2.79.1)
-      '@unocss/config': 0.51.4
-      '@unocss/core': 0.51.4
-      '@unocss/inspector': 0.51.4
-      '@unocss/scope': 0.51.4
-      '@unocss/transformer-directives': 0.51.4
-      chokidar: 3.5.3
-      fast-glob: 3.2.12
-      magic-string: 0.30.0
-      vite: 4.2.1
-    transitivePeerDependencies:
-      - rollup
     dev: true
 
   /@unocss/vite@0.51.4(vite@4.2.1):
@@ -4145,14 +4086,6 @@ packages:
       glob: 7.2.3
     dev: false
 
-  /rollup@2.79.1:
-    resolution: {integrity: sha512-uKxbd0IhMZOhjAiD5oAFp7BqvkA4Dv47qpOCtaNvng4HBwdbWtdOh8f5nZNuk2rp51PMGk3bzfWu5oayNEuYnw==}
-    engines: {node: '>=10.0.0'}
-    hasBin: true
-    optionalDependencies:
-      fsevents: 2.3.2
-    dev: true
-
   /rollup@3.20.4:
     resolution: {integrity: sha512-n7J4tuctZXUErM9Uc916httwqmTc63zzCr2+TLCiSCpfO/Xuk3g/marGN1IlRJZi+QF3XMYx75PxXRfZDVgaRw==}
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
@@ -4849,42 +4782,6 @@ packages:
     dependencies:
       '@unocss/core': 0.51.4
       '@unocss/preset-mini': 0.51.4
-    dev: true
-
-  /unocss@0.51.4(postcss@8.4.22)(rollup@2.79.1)(vite@4.2.1):
-    resolution: {integrity: sha512-84kRoL29Rk0AKdeS2GGZ+YduW5F0S2on3cSxA2Hh1KlI4MN8Xvxa8+f4RfFS0U5iH4yoHohvcWThRgjDhOWSeg==}
-    engines: {node: '>=14'}
-    peerDependencies:
-      '@unocss/webpack': 0.51.4
-    peerDependenciesMeta:
-      '@unocss/webpack':
-        optional: true
-    dependencies:
-      '@unocss/astro': 0.51.4(rollup@2.79.1)(vite@4.2.1)
-      '@unocss/cli': 0.51.4(rollup@2.79.1)
-      '@unocss/core': 0.51.4
-      '@unocss/extractor-arbitrary-variants': 0.51.4
-      '@unocss/postcss': 0.51.4(postcss@8.4.22)
-      '@unocss/preset-attributify': 0.51.4
-      '@unocss/preset-icons': 0.51.4
-      '@unocss/preset-mini': 0.51.4
-      '@unocss/preset-tagify': 0.51.4
-      '@unocss/preset-typography': 0.51.4
-      '@unocss/preset-uno': 0.51.4
-      '@unocss/preset-web-fonts': 0.51.4
-      '@unocss/preset-wind': 0.51.4
-      '@unocss/reset': 0.51.4
-      '@unocss/transformer-attributify-jsx': 0.51.4
-      '@unocss/transformer-attributify-jsx-babel': 0.51.4
-      '@unocss/transformer-compile-class': 0.51.4
-      '@unocss/transformer-directives': 0.51.4
-      '@unocss/transformer-variant-group': 0.51.4
-      '@unocss/vite': 0.51.4(rollup@2.79.1)(vite@4.2.1)
-    transitivePeerDependencies:
-      - postcss
-      - rollup
-      - supports-color
-      - vite
     dev: true
 
   /unocss@0.51.4(postcss@8.4.22)(vite@4.2.1):

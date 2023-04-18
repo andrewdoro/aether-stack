@@ -9,5 +9,8 @@
     "@unocss/preset-uno": "^0.51.4",
     "unocss": "^0.51.4",
     "unocss-preset-theme": "^0.6.0"
+  },
+  "dependencies": {
+    "@iconify-json/tabler": "^1.1.73"
   }
 }
