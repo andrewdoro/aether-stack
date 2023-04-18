@@ -17,12 +17,12 @@ const newConfig = {
     domains: ["picsum.photos"],
     minimumCacheTTL: 60,
     formats: ["image/avif", "image/webp"],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "picsum.photos",
-      },
-    ],
+    // remotePatterns: [
+    //   {
+    //     protocol: "https",
+    //     hostname: "picsum.photos",
+    //   },
+    // ],
   },
 };
 
