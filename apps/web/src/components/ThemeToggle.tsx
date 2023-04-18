@@ -1,8 +1,12 @@
 import { Show } from "solid-js";
 import { createLocalStore } from "./utils";
+import { isServer } from "solid-js/web";
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = createLocalStore<{ mode: string | null }>("theme", { mode: null });
+  const [theme, setTheme] = createLocalStore<{ mode: string | null }>(
+    { mode: null },
+    { key: "theme" }
+  );
   return (
     <div
       class='color-base text-xl bg-paper p-2 border rounded-full'
