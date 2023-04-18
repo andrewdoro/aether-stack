@@ -31,7 +31,7 @@ const { user } = await authRequest.validateUser();
       } else {
         document.documentElement.classList.add("dark");
       }
-      window.localStorage.setItem("theme", JSON.stringify({ mode: theme }));
+      window?.localStorage.setItem("theme", JSON.stringify({ mode: theme }));
     </script>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width' />
