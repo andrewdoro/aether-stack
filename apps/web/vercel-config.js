@@ -14,7 +14,7 @@ const newConfig = {
   version: 3,
   images: {
     sizes: [640, 750, 828, 1080, 1200],
-    domains: [],
+    domains: ["picsum.photos"],
     minimumCacheTTL: 60,
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
