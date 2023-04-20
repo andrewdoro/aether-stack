@@ -1,12 +1,14 @@
 import type { APIRoute } from "astro";
 import { appRouter, createTRPCContext, fetchRequestHandler } from "@packages/api";
+import { auth } from "@packages/auth";
 
-export const all: APIRoute = ({ request }) => {
+export const all: APIRoute = (context) => {
   return fetchRequestHandler({
     endpoint: "/api/trpc",
-    req: request,
+    req: context.request,
     router: appRouter,
-    createContext: createTRPCContext,
+    createContext: (opts) =>
+      createTRPCContext({ ...opts, authRequest: auth.handleRequest(context) }),
     responseMeta: ({ ctx, type, errors }) => {
       // checking that no procedures errored
       const allOk = errors.length === 0;

@@ -1,3 +1,4 @@
+import { protectedProcedure } from "./../trpc";
 import { z } from "zod";
 
 import { createTRPCRouter, publicProcedure } from "../trpc";
@@ -9,7 +10,7 @@ export const postRouter = createTRPCRouter({
   byId: publicProcedure.input(z.object({ id: z.string() })).query(({ ctx, input }) => {
     return ctx.db.selectFrom("Post").where("Post.id", "=", input.id).executeTakeFirst();
   }),
-  create: publicProcedure
+  create: protectedProcedure
     .input(
       z.object({
         title: z.string().min(1),

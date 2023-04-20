@@ -50,15 +50,13 @@ const createInnerTRPCContext = (opts: CreateContextOptions) => {
  * process every request that goes through your tRPC endpoint
  * @link https://trpc.io/docs/context
  */
-export const createTRPCContext = async (opts: FetchCreateContextFnOptions) => {
-  const { req, resHeaders } = opts;
+export const createTRPCContext = async (
+  opts: FetchCreateContextFnOptions & { authRequest: ReturnType<(typeof auth)["handleRequest"]> }
+) => {
+  const { req, resHeaders, authRequest } = opts;
   const { longitude, latitude, city, country } = geolocation(req);
 
-  const sessionId = auth.parseRequestHeaders(req as any);
-  let session = {};
-
-  if (sessionId) session = await auth.validateSession(sessionId);
-
+  const session = await authRequest.validate();
   return {
     ...createInnerTRPCContext({
       session,
@@ -113,7 +111,7 @@ export const publicProcedure = t.procedure;
  * procedure
  */
 const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
-  if (!ctx.session?.user) {
+  if (!ctx.session?.sessionId) {
     throw new TRPCError({ code: "UNAUTHORIZED" });
   }
   return next({
